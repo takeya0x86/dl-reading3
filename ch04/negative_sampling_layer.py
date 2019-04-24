@@ -83,11 +83,15 @@ class NegativeSamplingLoss:
             負例のサンプリング数
         """
         self.sample_size = sample_size
+
+        # UnigramSamplerを使用する
         self.sampler = UnigramSampler(corpus, power, sample_size)
 
         # 正例用のレイヤをひとつ、負例用のレイヤをsample_size個作成する
         # リストの最初のレイヤが正例を扱うものとする
         self.loss_layers = [SigmoidWithLoss() for _ in range(sample_size + 1)]
+
+        # 4.2.4で作成したEmbeddingDotレイヤ
         self.embed_dot_layers = [EmbeddingDot(W) for _ in range(sample_size + 1)]
         self.params, self.grads = [], []
         for layer in self.embed_dot_layers:

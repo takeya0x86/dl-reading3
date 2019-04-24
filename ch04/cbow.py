@@ -7,6 +7,18 @@ from ch04.negative_sampling_layer import NegativeSamplingLoss
 
 class CBOW:
     def __init__(self, vocab_size, hidden_size, window_size, corpus):
+        """
+        Parameters
+        ----------
+        vocab_size : 
+            語彙数
+        hidden_size : 
+            中間層のニューロン数
+        window_size :
+            コンテキストのサイズ
+        corpus :
+            単語IDのリスト
+        """
         V, H = vocab_size, hidden_size
 
         # 重みの初期化
