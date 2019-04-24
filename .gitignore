@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+dataset/ptb.train.npy
+dataset/ptb.train.txt
+dataset/ptb.vocab.pkl
